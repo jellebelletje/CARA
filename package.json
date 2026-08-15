@@ -1,0 +1,15 @@
+{
+  "name": "cara",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Copilot Adoption Readiness Assessment",
+  "scripts": {
+    "questions:check": "tsx scripts/questions.ts --check",
+    "questions:build": "tsx scripts/questions.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

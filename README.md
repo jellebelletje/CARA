@@ -17,7 +17,7 @@ covers the fourth.
 | Can we deploy safely? | [Purview and DSPM for AI](https://learn.microsoft.com/en-us/purview/ai-m365-copilot), [Copilot Control System](https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance) |
 | **Can the organisation absorb the change?** | **CARA**, alongside the [adoption planning checklist](https://adoption.microsoft.com/en-us/copilot/essential-guide/plan/) and [Copilot Success Kit](https://adoption.microsoft.com/en-us/copilot/success-kit/) |
 | Are people adopting it? | [AI Adoption Score](https://learn.microsoft.com/en-us/microsoft-365/admin/adoption/ai-adoption-score), [Copilot adoption report](https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/templates/microsoft-365-copilot-adoption) |
-| Is it producing value? | Copilot Impact report |
+| Is it producing value? | [Copilot impact report](https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/templates/microsoft-365-copilot-impact), [Copilot Business Impact report](https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/templates/copilot-business-impact) |
 
 CARA is not a technical or data-governance assessment and does not replace one. Run the
 Microsoft instruments above alongside it.
