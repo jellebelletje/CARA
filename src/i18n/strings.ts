@@ -64,6 +64,8 @@ const en = {
     'A progress figure for tracking movement between assessments. It is not the decision: an average is very good at hiding a single fatal gap, so the verdict above governs.',
   launchConditions: 'Launch conditions',
   noConditions: 'Nothing outstanding. Every dimension came back Ready or better.',
+  noConditionsYet:
+    'Nothing scored yet, so there is nothing to act on. Answer the questions to see what a pilot would need.',
   groupByTiming: 'By timing',
   groupByOwner: 'By owner',
   triggeredBy: 'From',

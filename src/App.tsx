@@ -112,7 +112,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setStep('intro')}
-            className="text-sm font-bold tracking-tight"
+            className="text-2xl leading-none font-extrabold tracking-tight sm:text-3xl"
             style={{ color: 'var(--ink)' }}
           >
             {t('appName', locale)}

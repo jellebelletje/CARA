@@ -135,7 +135,9 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
 
         {result.conditions.length === 0 ? (
           <p className="mt-3 text-sm" style={{ color: 'var(--ink-secondary)' }}>
-            {t('noConditions', locale)}
+            {/* An empty list means two very different things. With nothing
+                answered it must not read as a clean bill of health. */}
+            {t(result.readiness.answered === 0 ? 'noConditionsYet' : 'noConditions', locale)}
           </p>
         ) : (
           <div className="mt-4 grid gap-6">
