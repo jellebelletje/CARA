@@ -1,3 +1,4 @@
+import { dimensions } from '../data/assessment';
 import type { FormLength } from '../lib/forms';
 import { questionsInForm } from '../lib/forms';
 import type { Locale } from '../i18n/strings';
@@ -33,6 +34,35 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
 
       <p className="mt-5 leading-relaxed" style={{ color: 'var(--ink-secondary)' }}>
         {t('introBody', locale)}
+      </p>
+
+      <ol className="mt-4 grid gap-2.5">
+        {dimensions.map((dimension) => (
+          <li key={dimension.id} className="flex gap-3">
+            <span
+              aria-hidden="true"
+              className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold"
+              style={{ background: 'var(--level-3-wash)', color: 'var(--level-3-ink)' }}
+            >
+              {dimension.number}
+            </span>
+            <span className="min-w-0">
+              <span className="block text-sm font-semibold" style={{ color: 'var(--ink)' }}>
+                {dimension.name}
+              </span>
+              <span
+                className="block text-sm leading-relaxed"
+                style={{ color: 'var(--ink-secondary)' }}
+              >
+                {dimension.premise}
+              </span>
+            </span>
+          </li>
+        ))}
+      </ol>
+
+      <p className="mt-5 leading-relaxed" style={{ color: 'var(--ink-secondary)' }}>
+        {t('introAfterDimensions', locale)}
       </p>
 
       <div

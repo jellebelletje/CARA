@@ -21,8 +21,9 @@ const en = {
   appFull: 'Copilot Adoption Readiness Assessment',
   tagline: 'What has to be in place before a Microsoft 365 Copilot pilot can start?',
 
-  introBody:
-    'CARA is worked through as a conversation. It scores six dimensions, gives a go or no-go, and turns every gap into a launch condition with an owner and a deadline relative to the pilot.',
+  introBody: 'It is worked through as a conversation, scoring six dimensions.',
+  introAfterDimensions:
+    'Each dimension is scored on four levels. The result is a go or no-go, and every gap becomes a launch condition with an owner and a deadline relative to the pilot.',
   introPrivacy:
     'Your answers never leave this browser. There is no server and nothing is stored anywhere else. The link you share is the assessment itself, encoded in the address bar.',
   introPilotPoint:
