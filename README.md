@@ -64,9 +64,31 @@ the human-readable source of truth. The app reads a typed mirror of it.
 Full form for a proper engagement, short form (the pilot-critical subset) for a first
 conversation.
 
+## Working on it
+
+This project needs Node 22. Your nvm default is intentionally pinned to Node 18 because
+`flowise` and `n8n` are installed globally there, and global npm packages live per Node
+version under nvm. So do not change the default. Run this in the project directory instead:
+
+```bash
+nvm use
+```
+
+That reads `.nvmrc` and switches this shell only, leaving everything else on 18.
+
+```bash
+npm install
+npm run questions:check   # validate the question bank
+npm run questions:build   # regenerate content/questions.md from src/data
+```
+
+`src/data/` is the source of truth. `content/questions.md` is generated, so do not edit it
+by hand.
+
 ## Status
 
-In development. Question bank curated, rubric and launch-condition pass under way.
+In development. Question bank curated at 47 questions, rubric anchors and launch conditions
+complete. Application not yet scaffolded.
 
 ## House style
 
