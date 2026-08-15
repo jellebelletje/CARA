@@ -1,0 +1,83 @@
+CARA, Copilot Adoption Readiness Assessment
+Copyright (c) 2026 Jelmar Groot
+
+CARA is two things in one repository, and they are licensed separately. This is the
+arrangement Creative Commons itself recommends, because CC licences are not designed
+for software and software licences are not designed for written work.
+
+Both halves require attribution. Whichever part you use, the credit line stays.
+
+===============================================================================
+1. THE ASSESSMENT CONTENT: Creative Commons Attribution 4.0 International
+   SPDX-License-Identifier: CC-BY-4.0
+===============================================================================
+
+Covers the intellectual substance of CARA:
+
+  - the question bank, in content/ and src/data/dimensions/
+  - the readiness levels and the rubric anchors for each of them
+  - the launch conditions, their owners and their timings
+  - the scoring and verdict model
+  - the written material in README.md and content/
+
+You are free to:
+
+  Share   copy and redistribute the material in any medium or format
+  Adapt   remix, transform, and build upon the material for any purpose,
+          including commercially
+
+under the following term:
+
+  Attribution   You must give appropriate credit, provide a link to the licence,
+                and indicate if changes were made. You may do so in any reasonable
+                manner, but not in any way that suggests the licensor endorses you
+                or your use.
+
+The full legal code is at https://creativecommons.org/licenses/by/4.0/legalcode
+A plain-language summary is at https://creativecommons.org/licenses/by/4.0/
+
+===============================================================================
+2. THE APPLICATION CODE: MIT Licence
+   SPDX-License-Identifier: MIT
+===============================================================================
+
+Covers everything else: the React application, the scoring and conditions engines,
+the build tooling and the scripts.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this
+software and associated documentation files (the "Software"), to deal in the Software
+without restriction, including without limitation the rights to use, copy, modify,
+merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be included in all copies
+or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+===============================================================================
+HOW TO ATTRIBUTE
+===============================================================================
+
+Keep the credit visible wherever CARA is used, published or handed to a client. In a
+deployed copy of the application this means leaving the footer credit in place. In a
+document, report or deck derived from CARA, use:
+
+  CARA, Copilot Adoption Readiness Assessment, by Jelmar Groot.
+  https://github.com/jellebelletje/CARA
+  Licensed under CC BY 4.0.
+
+If you changed the questions, the rubric or the scoring, say so. The licence requires
+you to indicate that changes were made, and it protects you as much as it protects the
+original: someone reading your adapted version should not attribute your edits to
+someone else.
+
+CARA is not affiliated with, endorsed by, or sponsored by Microsoft. Microsoft, Microsoft
+365, Copilot, Purview and Viva are trademarks of the Microsoft group of companies, and
+are referred to here only to identify the products an assessment concerns.
