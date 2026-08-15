@@ -1,5 +1,11 @@
 # CARA, Copilot Adoption Readiness Assessment
 
+**Run the assessment: [jellebelletje.github.io/CARA](https://jellebelletje.github.io/CARA/)**
+
+> Not live yet. The link is the address the assessment will be published to, and it goes live
+> with the first deploy of the application. Until then, the question bank is readable at
+> [content/questions.md](content/questions.md).
+
 A scored readiness assessment for the question organisations actually ask before starting a
 Microsoft 365 Copilot pilot: **what has to be in place before we can start?**
 
@@ -9,18 +15,49 @@ scores six dimensions, produces a go / no-go verdict, and turns every gap into a
 
 ## Where CARA sits
 
-Microsoft provides strong instruments for three of the four stages of a Copilot decision. CARA
-covers the fourth.
+A complete Copilot decision needs four stages. Microsoft covers three of them with real,
+runnable instruments. For the fourth it publishes checklists and guides but no scored
+diagnostic, and that is the gap CARA fills.
 
-| Stage | Instrument |
-|---|---|
-| Can we deploy safely? | [Purview and DSPM for AI](https://learn.microsoft.com/en-us/purview/ai-m365-copilot), [Copilot Control System](https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance) |
-| **Can the organisation absorb the change?** | **CARA**, alongside the [adoption planning checklist](https://adoption.microsoft.com/en-us/copilot/essential-guide/plan/) and [Copilot Success Kit](https://adoption.microsoft.com/en-us/copilot/success-kit/) |
-| Are people adopting it? | [AI Adoption Score](https://learn.microsoft.com/en-us/microsoft-365/admin/adoption/ai-adoption-score), [Copilot adoption report](https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/templates/microsoft-365-copilot-adoption) |
-| Is it producing value? | [Copilot impact report](https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/templates/microsoft-365-copilot-impact), [Copilot Business Impact report](https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/templates/copilot-business-impact) |
+CARA is not a technical, security or data-governance assessment and does not replace one. Run
+the instruments below alongside it.
 
-CARA is not a technical or data-governance assessment and does not replace one. Run the
-Microsoft instruments above alongside it.
+### Stage 1. Can we deploy safely?
+
+Assessments to run:
+
+| Instrument | What it assesses | Where you run it |
+|---|---|---|
+| [Copilot Optimization Assessment](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources) | Data governance maturity and data security controls. Microsoft recommends completing it before deploying Copilot. | M365 admin center, Copilot, Settings, Readiness |
+| [Copilot Readiness Report](https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-readiness) | Technical eligibility, prerequisite licences, update channels, assigned versus available Copilot licences, and recommended preparation actions. | M365 admin center, Reports |
+| [Purview DSPM for AI data risk assessments](https://learn.microsoft.com/en-us/purview/data-security-posture-management-oversharing) | Oversharing exposure. Which sites and files Copilot could surface, and which sensitive content is unlabelled. | Purview portal, DSPM, Discover, Data risk assessments |
+| [SharePoint Advanced Management content assessment](https://learn.microsoft.com/en-us/microsoft-365/copilot/get-ready-copilot-sharepoint-advanced-management) | Sites that are overshared, ownerless or inactive, oversized audiences, and broken permission inheritance. Restricted Content Discovery excludes sensitive sites from Copilot. | SharePoint admin center |
+
+Reference reading behind those:
+
+- [Use Microsoft Purview for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/purview/ai-m365-copilot)
+- [DSPM for AI overview](https://learn.microsoft.com/en-us/purview/dspm-for-ai)
+- [Configure a secure and governed data foundation for Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot)
+- [Copilot Control System, security and governance](https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-control-system/security-governance)
+
+### Stage 2. Can the organisation absorb the change?
+
+**[CARA](https://jellebelletje.github.io/CARA/)**, the assessment in this repository. Microsoft's
+own material for this stage is planning support rather than diagnosis:
+
+- [Copilot adoption planning checklist](https://adoption.microsoft.com/en-us/copilot/essential-guide/plan/)
+- [Copilot Success Kit](https://adoption.microsoft.com/en-us/copilot/success-kit/)
+- [The essential guide to Copilot adoption](https://adoption.microsoft.com/en-us/copilot/essential-guide/)
+
+### Stage 3. Are people adopting it?
+
+- [AI Adoption Score](https://learn.microsoft.com/en-us/microsoft-365/admin/adoption/ai-adoption-score), habit formation against a 12-active-days-in-28 target
+- [Copilot adoption report](https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/templates/microsoft-365-copilot-adoption), Viva Insights, with the power, habitual and novice user definitions
+
+### Stage 4. Is it producing value?
+
+- [Copilot impact report](https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/templates/microsoft-365-copilot-impact), assisted hours and before-and-after collaboration patterns
+- [Copilot Business Impact report](https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/templates/copilot-business-impact), which joins Copilot telemetry to your own business outcome measures
 
 ## The scoring model
 
@@ -89,6 +126,42 @@ by hand.
 
 In development. Question bank curated at 47 questions, rubric anchors and launch conditions
 complete. Application not yet scaffolded.
+
+## Using CARA in your own organisation
+
+You are welcome to clone this and run it yourself, for your own organisation or with your own
+clients. Attribution is required. See [LICENSE](LICENSE) for the exact terms; the short version
+is that the credit line must stay visible wherever CARA is used or published.
+
+```bash
+git clone https://github.com/jellebelletje/CARA.git
+cd CARA
+nvm use          # Node 22, see .nvmrc
+npm install
+npm run dev
+```
+
+To publish your own copy:
+
+1. Fork the repository, or clone it and push to a repository of your own.
+2. In your repository settings, enable GitHub Pages with GitHub Actions as the source.
+3. Push to `main`. The workflow in `.github/workflows/deploy.yml` builds and publishes it.
+
+Everything runs in the browser. There is no server and no database, and nothing an assessment
+records leaves the machine it was filled in on unless the person filling it in chooses to share
+the link.
+
+### Adapting the questions
+
+The question bank is meant to be adapted to your own practice.
+
+- Edit the files in `src/data/dimensions/`. Each question carries its own text, hint, four
+  rubric anchors and two launch conditions, so a change is local to one object.
+- Run `npm run questions:check` to validate. It enforces unique ids, complete anchors, both
+  launch conditions, 5 to 10 questions per dimension, and the pilot-critical balance.
+- Run `npm run questions:build` to regenerate `content/questions.md`.
+
+Keep the attribution in place when you do. Adapting the bank does not make it yours.
 
 ## House style
 
