@@ -5,18 +5,34 @@ Last updated at the end of the scoring-engine work.
 
 ## START HERE
 
-The next piece of work is **the user interface**. The data and the engine are done and tested.
-Nothing is half-finished; the app simply has no screens yet.
+The application is built and working. **One decision is blocking publication.**
 
-Missing files, in build order:
+GitHub Pages is not available for private repositories on a free GitHub plan. The deploy
+workflow runs, builds and uploads the artifact successfully, then fails on the final step with
+`Failed to create deployment (status: 404)`. This is a plan limitation, not a bug, and nothing
+in the code needs changing.
 
-1. `index.html`, `src/main.tsx`, `src/styles/tokens.css`
-2. `src/i18n/strings.ts`, so no user-facing string is ever hardcoded in a component (see issue #2)
-3. `src/lib/shareState.ts`, answers to and from a compressed URL hash
-4. Components: intro, one screen per dimension, results, launch conditions, footer credit
-5. `.github/workflows/deploy.yml` and enabling GitHub Pages, which makes the README link real
+Three ways forward, all of which work with the pipeline exactly as it stands:
+
+1. **Make the repository public.** Pages is free for public repositories. This fits the project
+   already: it is licensed CC BY 4.0, the README carries fork and self-host instructions, and
+   the whole point is that other organisations can use it. It publishes the full commit history
+   as well as the current code, so it is worth a look through first.
+2. **GitHub Pro**, around 4 USD a month, which enables Pages on private repositories.
+3. **Deploy somewhere else.** Netlify, Cloudflare Pages and Vercel all have free tiers that
+   build from a private repository. This needs a different workflow file but no application
+   changes, since the build output is a plain static `dist/`.
+
+Until one of those happens, the assessment runs locally with `npm run dev` and the README link
+to `jellebelletje.github.io/CARA` stays dark.
 
 ## What exists and is verified
+
+- **The full application.** Intro with the form-length choice, six dimension screens, and a
+  results view with the verdict, dimension levels and launch conditions grouped by timing or
+  owner. PDF via print stylesheet, mailto, and a copy-able share link.
+- Verified in a browser end to end, in light and dark mode and at 375px. A 47-answer share link
+  decodes correctly and produces exactly the dimension levels the model predicts.
 
 - **47 questions** across six dimensions, curated one dimension at a time. Counts are 7, 7, 7, 9,
   7, 10. Dimension 4 has nine because nine were kept, not by accident.
