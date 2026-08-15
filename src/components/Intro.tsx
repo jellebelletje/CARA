@@ -165,8 +165,11 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
 
         <MicrosoftStack locale={locale} />
 
+        {/* The stage table above is the full list, so this no longer promises
+            more detail on the stages. It points at the README as a whole:
+            the scoring model, the licence, and how to run your own copy. */}
         <a
-          href={`${REPO}#where-cara-sits`}
+          href={REPO}
           target="_blank"
           rel="noreferrer"
           className="font-medium underline underline-offset-2"

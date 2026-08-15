@@ -83,7 +83,7 @@ const en = {
   runAlongside: 'Run these alongside CARA',
   runAlongsideBody:
     'A complete Copilot decision needs four stages, and CARA is one of them. Microsoft provides real, runnable instruments for the other three: the Optimization Assessment and Readiness Report for technical eligibility, Purview DSPM for AI and SharePoint Advanced Management for oversharing and data governance, and the adoption and impact reports for what happens once people start using it.',
-  runAlongsideLink: 'More detail on all of these in the README',
+  runAlongsideLink: 'Read the README',
   stage: 'Stage',
 
   creditPrefix: 'CARA by',
