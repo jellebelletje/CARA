@@ -32,6 +32,18 @@ export default function Footer({ locale }: { locale: Locale }) {
         .
       </p>
       <p className="mt-2">
+        Photographs from{' '}
+        <a
+          href="https://unsplash.com"
+          target="_blank"
+          rel="noreferrer"
+          className="underline underline-offset-2"
+        >
+          Unsplash
+        </a>
+        , used under the Unsplash licence.
+      </p>
+      <p className="mt-2">
         Not affiliated with or endorsed by Microsoft. Microsoft 365, Copilot, Purview and Viva are
         trademarks of the Microsoft group of companies.
       </p>
