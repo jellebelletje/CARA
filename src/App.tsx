@@ -39,7 +39,13 @@ interface Persisted {
 
 function loadInitial(): Persisted & { fromLink: boolean } {
   const fromHash = window.location.hash ? decodeState(window.location.hash) : null;
-  if (fromHash) return { ...fromHash, fromLink: true };
+  if (fromHash) {
+    // A link only jumps straight to the results if it actually carries answers.
+    // An empty one is just the address bar keeping itself in step, and landing
+    // someone on a verdict of "Incomplete" is a poor way to open.
+    const hasAnswers = Object.keys(fromHash.answers).length > 0;
+    return { ...fromHash, fromLink: hasAnswers };
+  }
 
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);

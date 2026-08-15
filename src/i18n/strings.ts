@@ -21,13 +21,16 @@ const en = {
   appFull: 'Copilot Adoption Readiness Assessment',
   tagline: 'What has to be in place before a Microsoft 365 Copilot pilot can start?',
 
-  introBody: 'It is worked through as a conversation, scoring six dimensions.',
+  introBody:
+    'It is worked through as a conversation with an adoption consultant, scoring six dimensions.',
   introAfterDimensions:
     'Each dimension is scored on four levels. The result is a go or no-go, and every gap becomes a launch condition: what to do about it, which side owns it, and whether it has to be closed before the pilot starts, alongside it, or before broad rollout.',
   introPrivacy:
     'Your answers never leave this browser. There is no server and nothing is stored anywhere else. The link you share is the assessment itself, encoded in the address bar.',
+  // Emphasis is marked in the string so a translation can place it where its
+  // own sentence structure needs it. See RichText.
   introPilotPoint:
-    'A pilot exists to answer questions, so CARA never asks for something only the pilot can tell you. Only Not ready blocks a start. Emerging always proceeds, carrying a condition. Scalable is what you re-score against afterwards.',
+    'A pilot exists to answer questions, so CARA never asks for something only the pilot can tell you. Only **Not ready** blocks a start. **Emerging** always proceeds, carrying a condition. **Scalable** is what you re-score against afterwards.',
   introNotTechnical:
     'CARA assesses whether the organisation can absorb the change. It is not a security or data-governance assessment and does not replace one.',
 

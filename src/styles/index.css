@@ -50,6 +50,23 @@
   --level-1-ink: #8a5c00;
   --level-2-ink: #0d6b4a;
   --level-3-ink: #1a5296;
+
+  /*
+   * Dimension tints: one violet ramp, deepening with the dimension number.
+   *
+   * A single hue family rather than six hues, and violet specifically because
+   * it is the one family no readiness level uses. Six unrelated hues would put
+   * a second colour language on the screen and invite a reader to take a
+   * dimension's identity colour for its score. Here the shade only ever says
+   * "this is the third of six", never "this is doing well".
+   */
+  --dim-1-tint: #f0ecfd;
+  --dim-2-tint: #e6dffb;
+  --dim-3-tint: #dbd0f9;
+  --dim-4-tint: #cdbef6;
+  --dim-5-tint: #bda9f2;
+  --dim-6-tint: #ab92ed;
+  --dim-ink: #3f3191;
 }
 
 :root[data-theme='dark'] {
@@ -78,6 +95,14 @@
   --level-1-ink: #eab551;
   --level-2-ink: #4fc79b;
   --level-3-ink: #7fb2f0;
+
+  --dim-1-tint: #26213a;
+  --dim-2-tint: #2d2747;
+  --dim-3-tint: #352d55;
+  --dim-4-tint: #3f3565;
+  --dim-5-tint: #4a3d77;
+  --dim-6-tint: #57478b;
+  --dim-ink: #cfc2f8;
 }
 
 html {

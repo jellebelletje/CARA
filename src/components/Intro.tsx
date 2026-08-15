@@ -5,6 +5,7 @@ import type { Locale } from '../i18n/strings';
 import { t } from '../i18n/strings';
 import MicrosoftStack from './MicrosoftStack';
 import DimensionIcon from './DimensionIcon';
+import RichText from './RichText';
 
 const REPO = 'https://github.com/jellebelletje/CARA';
 
@@ -47,7 +48,10 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
             <div className="flex items-center gap-3">
               <span
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
-                style={{ background: 'var(--page)', color: 'var(--ink)' }}
+                style={{
+                  background: `var(--dim-${dimension.number}-tint)`,
+                  color: 'var(--dim-ink)',
+                }}
               >
                 <DimensionIcon id={dimension.id} className="h-5 w-5" />
               </span>
@@ -102,7 +106,7 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
           ))}
         </ul>
         <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--ink-secondary)' }}>
-          {t('introPilotPoint', locale)}
+          <RichText text={t('introPilotPoint', locale)} />
         </p>
       </div>
 
