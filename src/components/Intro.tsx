@@ -4,6 +4,7 @@ import { questionsInForm } from '../lib/forms';
 import type { Locale } from '../i18n/strings';
 import { t } from '../i18n/strings';
 import MicrosoftStack from './MicrosoftStack';
+import DimensionIcon from './DimensionIcon';
 
 const REPO = 'https://github.com/jellebelletje/CARA';
 
@@ -36,27 +37,41 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
         {t('introBody', locale)}
       </p>
 
-      <ol className="mt-4 grid gap-2.5">
+      <ol className="mt-5 grid gap-3 sm:grid-cols-2">
         {dimensions.map((dimension) => (
-          <li key={dimension.id} className="flex gap-3">
-            <span
-              aria-hidden="true"
-              className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold"
-              style={{ background: 'var(--level-3-wash)', color: 'var(--level-3-ink)' }}
-            >
-              {dimension.number}
-            </span>
-            <span className="min-w-0">
-              <span className="block text-sm font-semibold" style={{ color: 'var(--ink)' }}>
-                {dimension.name}
-              </span>
+          <li
+            key={dimension.id}
+            className="rounded-xl border p-4"
+            style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}
+          >
+            <div className="flex items-center gap-3">
               <span
-                className="block text-sm leading-relaxed"
-                style={{ color: 'var(--ink-secondary)' }}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
+                style={{ background: 'var(--page)', color: 'var(--ink)' }}
               >
-                {dimension.premise}
+                <DimensionIcon id={dimension.id} className="h-5 w-5" />
               </span>
-            </span>
+              <span className="min-w-0">
+                <span
+                  className="block text-xs font-semibold tracking-wide uppercase"
+                  style={{ color: 'var(--ink-muted)' }}
+                >
+                  {dimension.number}
+                </span>
+                <span
+                  className="block text-sm leading-snug font-semibold"
+                  style={{ color: 'var(--ink)' }}
+                >
+                  {dimension.name}
+                </span>
+              </span>
+            </div>
+            <p
+              className="mt-3 text-sm leading-relaxed"
+              style={{ color: 'var(--ink-secondary)' }}
+            >
+              {dimension.premise}
+            </p>
           </li>
         ))}
       </ol>

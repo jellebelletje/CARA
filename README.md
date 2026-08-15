@@ -7,7 +7,8 @@ Microsoft 365 Copilot pilot: **what has to be in place before we can start?**
 
 CARA is worked through as a conversation between an adoption coach and the organisation. It
 scores six dimensions, produces a go / no-go verdict, and turns every gap into a concrete
-**launch condition** with an owner and a deadline relative to the pilot.
+**launch condition**: what to do about it, which side owns it, and whether it has to be closed
+before the pilot starts, alongside it, or before broad rollout.
 
 ## Where CARA sits
 

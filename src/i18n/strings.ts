@@ -23,7 +23,7 @@ const en = {
 
   introBody: 'It is worked through as a conversation, scoring six dimensions.',
   introAfterDimensions:
-    'Each dimension is scored on four levels. The result is a go or no-go, and every gap becomes a launch condition with an owner and a deadline relative to the pilot.',
+    'Each dimension is scored on four levels. The result is a go or no-go, and every gap becomes a launch condition: what to do about it, which side owns it, and whether it has to be closed before the pilot starts, alongside it, or before broad rollout.',
   introPrivacy:
     'Your answers never leave this browser. There is no server and nothing is stored anywhere else. The link you share is the assessment itself, encoded in the address bar.',
   introPilotPoint:
