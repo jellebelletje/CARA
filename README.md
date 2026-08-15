@@ -100,18 +100,12 @@ conversation.
 
 ## Working on it
 
-This project needs Node 22. Your nvm default is intentionally pinned to Node 18 because
-`flowise` and `n8n` are installed globally there, and global npm packages live per Node
-version under nvm. So do not change the default. Run this in the project directory instead:
+This project needs Node 22, which `.nvmrc` pins. In the project directory:
 
 ```bash
 nvm use
-```
-
-That reads `.nvmrc` and switches this shell only, leaving everything else on 18.
-
-```bash
 npm install
+npm test                  # scoring engine and Dutch coverage
 npm run questions:check   # validate the question bank
 npm run questions:build   # regenerate content/questions.md from src/data
 ```
