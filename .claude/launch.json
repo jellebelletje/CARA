@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "cara",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "if [ -s \"${NVM_DIR:-$HOME/.nvm}/nvm.sh\" ]; then . \"${NVM_DIR:-$HOME/.nvm}/nvm.sh\" >/dev/null 2>&1 && nvm use >/dev/null 2>&1; fi; exec npm run dev"
+      ],
+      "port": 5173
+    }
+  ]
+}
