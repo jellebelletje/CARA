@@ -1,6 +1,14 @@
 import { microsoftStack } from '../data/microsoftStack';
 import type { Locale } from '../i18n/strings';
 import { t } from '../i18n/strings';
+import { nlStack } from '../i18n/nl/stack';
+
+/** Instrument names stay in English; only the prose around them is translated. */
+const stageQuestion = (number: number, fallback: string, locale: Locale) =>
+  (locale === 'nl' ? nlStack[number]?.question : undefined) ?? fallback;
+
+const linkProse = (number: number, url: string, locale: Locale) =>
+  (locale === 'nl' ? nlStack[number]?.links?.[url] : undefined) ?? {};
 
 /**
  * Shown on the intro screen, not tucked away in the README. Someone about to
@@ -35,7 +43,7 @@ export default function MicrosoftStack({ locale }: { locale: Locale }) {
                 {t('stage', locale)} {stage.number}
               </span>
               <h3 className="text-sm font-semibold" style={{ color: 'var(--ink)' }}>
-                {stage.question}
+                {stageQuestion(stage.number, stage.question, locale)}
               </h3>
               {stage.isCara && (
                 <span
@@ -48,7 +56,11 @@ export default function MicrosoftStack({ locale }: { locale: Locale }) {
             </div>
 
             <ul className="mt-3 grid gap-2.5">
-              {stage.links.map((link) => (
+              {stage.links.map((link) => {
+                const prose = linkProse(stage.number, link.url, locale);
+                const detail = prose.detail ?? link.detail;
+                const where = prose.where ?? link.where;
+                return (
                 <li key={link.url} className="text-sm leading-relaxed">
                   <a
                     href={link.url}
@@ -59,16 +71,15 @@ export default function MicrosoftStack({ locale }: { locale: Locale }) {
                   >
                     {link.label}
                   </a>
-                  {link.detail && (
-                    <span style={{ color: 'var(--ink-secondary)' }}> {link.detail}</span>
-                  )}
-                  {link.where && (
+                  {detail && <span style={{ color: 'var(--ink-secondary)' }}> {detail}</span>}
+                  {where && (
                     <span className="block text-xs" style={{ color: 'var(--ink-muted)' }}>
-                      {link.where}
+                      {where}
                     </span>
                   )}
                 </li>
-              ))}
+                );
+              })}
             </ul>
           </li>
         ))}

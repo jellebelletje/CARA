@@ -3,6 +3,7 @@ import type { Locale } from '../i18n/strings';
 import { t } from '../i18n/strings';
 import LevelPicker from './LevelPicker';
 import { imageSrcSet, imageUrl, questionImages } from '../data/questionImages';
+import { questionText, questionWhy } from '../i18n/questionText';
 
 interface Props {
   question: Question;
@@ -64,7 +65,7 @@ export default function QuestionCard({
         </div>
 
         <h3 className="mt-2 text-base font-semibold sm:text-lg" style={{ color: 'var(--ink)' }}>
-          {question.text}
+          {questionText(question, locale)}
         </h3>
 
         <p
@@ -72,7 +73,7 @@ export default function QuestionCard({
           style={{ borderColor: 'var(--hairline)', color: 'var(--ink-secondary)' }}
         >
           <span className="font-medium">{t('whyItMatters', locale)}. </span>
-          {question.why}
+          {questionWhy(question, locale)}
         </p>
         </header>
 

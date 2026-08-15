@@ -6,6 +6,7 @@ import { groupByOwner, groupByTiming, OWNERS, TIMINGS } from '../lib/conditions'
 import ReadinessChart from './ReadinessChart';
 import type { Locale } from '../i18n/strings';
 import { ownerName, t, timingName, verdictBlurb, verdictName } from '../i18n/strings';
+import { conditionAction } from '../i18n/questionText';
 
 interface Props {
   result: AssessmentResult;
@@ -35,7 +36,7 @@ function ConditionItem({ condition, locale }: { condition: ResolvedCondition; lo
       }}
     >
       <p className="text-sm leading-relaxed" style={{ color: 'var(--ink)' }}>
-        {condition.action}
+        {conditionAction(condition, locale)}
       </p>
       <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs" style={{ color: 'var(--ink-muted)' }}>
         <span className="font-medium">{ownerName(condition.owner, locale)}</span>

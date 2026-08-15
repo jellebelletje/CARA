@@ -4,6 +4,7 @@ import type { AssessmentResult } from '../lib/scoring';
 import { dimensionPercent } from '../lib/scoring';
 import type { Locale } from '../i18n/strings';
 import { levelName, t } from '../i18n/strings';
+import { dimensionName } from '../i18n/questionText';
 
 /*
  * Three views of the same answers, each doing a different job.
@@ -106,7 +107,7 @@ export default function ReadinessChart({ result, locale }: Props) {
             <div key={d.dimension.id} className="print-block">
               <div className="flex items-baseline justify-between gap-3">
                 <span className="text-sm font-medium" style={{ color: 'var(--ink)' }}>
-                  {d.dimension.number}. {d.dimension.name}
+                  {d.dimension.number}. {dimensionName(d.dimension, locale)}
                 </span>
                 <span className="flex shrink-0 items-baseline gap-2 text-xs">
                   <span

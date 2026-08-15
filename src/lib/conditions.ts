@@ -16,6 +16,12 @@ export interface ResolvedCondition {
   triggeredBy: string[];
   /** The worst level that triggered it. 0 (Not ready) is worse than 1 (Emerging). */
   severity: 0 | 1;
+  /**
+   * The question whose wording the action text came from. Merging discards the
+   * other candidates, so this is what a translation layer needs in order to
+   * look the action up again in another language.
+   */
+  sourceQuestionId: string;
 }
 
 export const TIMINGS: Timing[] = ['before-pilot', 'during-pilot', 'before-rollout'];
@@ -55,6 +61,7 @@ export function collectConditions(answers: Answers, form: FormLength = 'full'): 
         timing: condition.timing,
         triggeredBy: [q.id],
         severity: answer,
+        sourceQuestionId: q.id,
       });
       continue;
     }
@@ -64,6 +71,7 @@ export function collectConditions(answers: Answers, form: FormLength = 'full'): 
     if (answer < existing.severity) {
       existing.severity = answer;
       existing.action = condition.action;
+      existing.sourceQuestionId = q.id;
     }
     if (TIMING_ORDER[condition.timing] < TIMING_ORDER[existing.timing]) {
       existing.timing = condition.timing;

@@ -119,10 +119,20 @@ npm run questions:build   # regenerate content/questions.md from src/data
 `src/data/` is the source of truth. `content/questions.md` is generated, so do not edit it
 by hand.
 
+## Languages
+
+English and Dutch, switched with the flags in the header. The choice travels in the share link,
+so a session filled in in Dutch opens in Dutch.
+
+English is the source of truth in `src/data/`. Dutch is an overlay in `src/i18n/nl/`, keyed by
+question id, so a third language can be added file by file without touching the English. A test
+fails if any Dutch question, hint, anchor or launch condition is missing, because the runtime
+fallback to English would otherwise hide the gap.
+
 ## Status
 
-In development. Question bank curated at 47 questions, rubric anchors and launch conditions
-complete. Application not yet scaffolded.
+In development. 47 questions with full rubrics and launch conditions, in two languages, with the
+scoring engine under test.
 
 ## Using CARA in your own organisation
 

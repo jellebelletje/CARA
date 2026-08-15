@@ -2,6 +2,7 @@ import type { Answer, Level, Question } from '../data/types';
 import { LEVELS } from '../data/types';
 import type { Locale } from '../i18n/strings';
 import { levelName, t } from '../i18n/strings';
+import { questionAnchor, questionText } from '../i18n/questionText';
 
 interface Props {
   question: Question;
@@ -21,7 +22,7 @@ interface Props {
  */
 export default function LevelPicker({ question, answer, onChange, locale }: Props) {
   return (
-    <div role="radiogroup" aria-label={question.text} className="mt-4 grid gap-2">
+    <div role="radiogroup" aria-label={questionText(question, locale)} className="mt-4 grid gap-2">
       {LEVELS.map((level: Level) => {
         const selected = answer === level;
         return (
@@ -57,7 +58,7 @@ export default function LevelPicker({ question, answer, onChange, locale }: Prop
                 className="mt-0.5 block text-sm leading-relaxed"
                 style={{ color: 'var(--ink-secondary)' }}
               >
-                {question.anchors[level]}
+                {questionAnchor(question, level, locale)}
               </span>
             </span>
           </button>

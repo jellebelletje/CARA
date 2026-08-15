@@ -117,6 +117,7 @@ describe('computeVerdict', () => {
       owner: 'coach' as const,
       triggeredBy: [],
       severity: 1 as const,
+      sourceQuestionId: 'lead-01',
     };
     expect(computeVerdict(results(3, 3, 3, 3, 3, 3), [blocker])).toBe('go-with-conditions');
   });
@@ -129,6 +130,7 @@ describe('computeVerdict', () => {
       owner: 'coach' as const,
       triggeredBy: [],
       severity: 1 as const,
+      sourceQuestionId: 'lead-01',
     };
     expect(computeVerdict(results(3, 3, 3, 3, 3, 3), [])).toBe('scale-ready');
     expect(computeVerdict(results(3, 3, 3, 3, 3, 3), [rolloutItem])).toBe('go');

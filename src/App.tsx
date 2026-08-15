@@ -6,7 +6,7 @@ import { questionsInForm } from './lib/forms';
 import { assess } from './lib/scoring';
 import { decodeState, encodeState, shareUrl } from './lib/shareState';
 import type { Locale } from './i18n/strings';
-import { DEFAULT_LOCALE, t } from './i18n/strings';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_LABELS, t } from './i18n/strings';
 import Intro from './components/Intro';
 import DimensionScreen from './components/DimensionScreen';
 import Results from './components/Results';
@@ -65,11 +65,16 @@ export default function App() {
 
   const [answers, setAnswers] = useState<Answers>(initial.answers);
   const [form, setForm] = useState<FormLength>(initial.form);
-  const [locale] = useState<Locale>(initial.locale);
+  const [locale, setLocale] = useState<Locale>(initial.locale);
   const [step, setStep] = useState<Step>(initial.fromLink ? 'results' : 'intro');
   const [theme, setTheme] = useState<Theme>(loadTheme);
 
   const session = useMemo(() => ({ answers, form, locale }), [answers, form, locale]);
+
+  useEffect(() => {
+    // Screen readers and browser translation both key off this.
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -139,6 +144,31 @@ export default function App() {
                 </span>
               </span>
             )}
+
+            <div
+              className="flex gap-0.5 rounded-lg border p-0.5"
+              style={{ borderColor: 'var(--border)' }}
+              role="group"
+              aria-label="Taal / Language"
+            >
+              {LOCALES.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => setLocale(option)}
+                  aria-pressed={locale === option}
+                  title={LOCALE_LABELS[option].name}
+                  className="rounded px-2 py-1 text-sm"
+                  style={{
+                    background: locale === option ? 'var(--level-3-wash)' : 'transparent',
+                    opacity: locale === option ? 1 : 0.55,
+                  }}
+                >
+                  <span aria-hidden="true">{LOCALE_LABELS[option].flag}</span>
+                  <span className="sr-only">{LOCALE_LABELS[option].name}</span>
+                </button>
+              ))}
+            </div>
 
             <button
               type="button"

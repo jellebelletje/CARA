@@ -2,6 +2,7 @@ import type { Answer, Dimension, Question } from '../data/types';
 import type { Answers } from '../lib/forms';
 import type { Locale } from '../i18n/strings';
 import { t } from '../i18n/strings';
+import { dimensionName, dimensionPremise } from '../i18n/questionText';
 import QuestionCard from './QuestionCard';
 
 interface Props {
@@ -34,10 +35,10 @@ export default function DimensionScreen({
           {t('dimension', locale)} {dimension.number} {t('of', locale)} 6
         </p>
         <h2 className="mt-1 text-2xl font-bold sm:text-3xl" style={{ color: 'var(--ink)' }}>
-          {dimension.name}
+          {dimensionName(dimension, locale)}
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed" style={{ color: 'var(--ink-secondary)' }}>
-          {dimension.premise}
+          {dimensionPremise(dimension, locale)}
         </p>
         <p className="mt-2 text-xs" style={{ color: 'var(--ink-muted)' }}>
           {answered} {t('of', locale)} {questions.length} {t('answered', locale)}

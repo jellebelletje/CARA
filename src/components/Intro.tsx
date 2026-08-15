@@ -2,10 +2,11 @@ import { dimensions } from '../data/assessment';
 import type { FormLength } from '../lib/forms';
 import { questionsInForm } from '../lib/forms';
 import type { Locale } from '../i18n/strings';
-import { t } from '../i18n/strings';
+import { levelName, t } from '../i18n/strings';
 import MicrosoftStack from './MicrosoftStack';
 import DimensionIcon from './DimensionIcon';
 import RichText from './RichText';
+import { dimensionName, dimensionPremise } from '../i18n/questionText';
 
 const REPO = 'https://github.com/jellebelletje/CARA';
 
@@ -16,13 +17,6 @@ interface Props {
   hasSaved: boolean;
   locale: Locale;
 }
-
-const LEVEL_SUMMARY: { level: 0 | 1 | 2 | 3; text: string }[] = [
-  { level: 0, text: 'This will break the pilot. Fix it before starting.' },
-  { level: 1, text: 'The pilot can start, carrying a named condition.' },
-  { level: 2, text: 'The pilot will produce a trustworthy answer.' },
-  { level: 3, text: 'This would survive a full rollout, not just a pilot.' },
-];
 
 export default function Intro({ form, onFormChange, onStart, hasSaved, locale }: Props) {
   return (
@@ -66,7 +60,7 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
                   className="block text-sm leading-snug font-semibold"
                   style={{ color: 'var(--ink)' }}
                 >
-                  {dimension.name}
+                  {dimensionName(dimension, locale)}
                 </span>
               </span>
             </div>
@@ -74,7 +68,7 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
               className="mt-3 text-sm leading-relaxed"
               style={{ color: 'var(--ink-secondary)' }}
             >
-              {dimension.premise}
+              {dimensionPremise(dimension, locale)}
             </p>
           </li>
         ))}
@@ -89,7 +83,7 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
         style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}
       >
         <ul className="grid gap-3">
-          {LEVEL_SUMMARY.map(({ level, text }) => (
+          {([0, 1, 2, 3] as const).map((level) => (
             <li key={level} className="flex items-start gap-3">
               <span
                 aria-hidden="true"
@@ -97,10 +91,8 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
                 style={{ background: `var(--level-${level})` }}
               />
               <span className="text-sm leading-relaxed" style={{ color: 'var(--ink-secondary)' }}>
-                <strong style={{ color: 'var(--ink)' }}>
-                  {['Not ready', 'Emerging', 'Ready', 'Scalable'][level]}.
-                </strong>{' '}
-                {text}
+                <strong style={{ color: 'var(--ink)' }}>{levelName(level, locale)}.</strong>{' '}
+                {t(`levelBlurb${level}`, locale)}
               </span>
             </li>
           ))}
@@ -134,7 +126,7 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
                   {t(option === 'full' ? 'fullForm' : 'shortForm', locale)}
                 </span>
                 <span className="mt-1 block text-xs" style={{ color: 'var(--ink-muted)' }}>
-                  {questionsInForm(option).length} questions
+                  {questionsInForm(option).length} {t('questionsWord', locale)}
                 </span>
                 <span
                   className="mt-2 block text-sm leading-relaxed"
