@@ -13,6 +13,21 @@ import Results from './components/Results';
 import Footer from './components/Footer';
 
 const STORAGE_KEY = 'cara.session.v1';
+const THEME_KEY = 'cara.theme.v1';
+
+type Theme = 'light' | 'dark';
+
+function loadTheme(): Theme {
+  try {
+    const stored = window.localStorage.getItem(THEME_KEY);
+    if (stored === 'light' || stored === 'dark') return stored;
+  } catch {
+    // Ignore and fall through to the default.
+  }
+  // Light by default rather than following the operating system. This gets
+  // shown on projectors and printed, and light is the safer of the two there.
+  return 'light';
+}
 
 type Step = 'intro' | number | 'results';
 
@@ -46,8 +61,18 @@ export default function App() {
   const [form, setForm] = useState<FormLength>(initial.form);
   const [locale] = useState<Locale>(initial.locale);
   const [step, setStep] = useState<Step>(initial.fromLink ? 'results' : 'intro');
+  const [theme, setTheme] = useState<Theme>(loadTheme);
 
   const session = useMemo(() => ({ answers, form, locale }), [answers, form, locale]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      window.localStorage.setItem(THEME_KEY, theme);
+    } catch {
+      // Not worth failing over. The theme still applies for this session.
+    }
+  }, [theme]);
 
   useEffect(() => {
     try {
@@ -92,21 +117,33 @@ export default function App() {
           >
             {t('appName', locale)}
           </button>
-          {step !== 'intro' && (
-            <span className="flex items-center gap-2 text-xs" style={{ color: 'var(--ink-muted)' }}>
-              {answeredCount}/{inScope.length}
-              <span
-                aria-hidden="true"
-                className="h-1.5 w-24 overflow-hidden rounded-full"
-                style={{ background: 'var(--hairline)' }}
-              >
+          <div className="flex items-center gap-4">
+            {step !== 'intro' && (
+              <span className="flex items-center gap-2 text-xs" style={{ color: 'var(--ink-secondary)' }}>
+                {answeredCount}/{inScope.length}
                 <span
-                  className="block h-full rounded-full transition-[width]"
-                  style={{ width: `${progress}%`, background: 'var(--level-3)' }}
-                />
+                  aria-hidden="true"
+                  className="h-1.5 w-24 overflow-hidden rounded-full"
+                  style={{ background: 'var(--hairline)' }}
+                >
+                  <span
+                    className="block h-full rounded-full transition-[width]"
+                    style={{ width: `${progress}%`, background: 'var(--level-3)' }}
+                  />
+                </span>
               </span>
-            </span>
-          )}
+            )}
+
+            <button
+              type="button"
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+              className="rounded-lg border px-2.5 py-1.5 text-xs font-medium"
+              style={{ borderColor: 'var(--border)', color: 'var(--ink-secondary)' }}
+            >
+              {theme === 'light' ? '◑ Dark' : '◐ Light'}
+            </button>
+          </div>
         </div>
       </header>
 

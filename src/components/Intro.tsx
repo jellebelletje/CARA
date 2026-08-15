@@ -2,6 +2,9 @@ import type { FormLength } from '../lib/forms';
 import { questionsInForm } from '../lib/forms';
 import type { Locale } from '../i18n/strings';
 import { t } from '../i18n/strings';
+import MicrosoftStack from './MicrosoftStack';
+
+const REPO = 'https://github.com/jellebelletje/CARA';
 
 interface Props {
   form: FormLength;
@@ -112,7 +115,20 @@ export default function Intro({ form, onFormChange, onStart, hasSaved, locale }:
         >
           {t('introPrivacy', locale)}
         </p>
+
         <p style={{ color: 'var(--ink-muted)' }}>{t('introNotTechnical', locale)}</p>
+
+        <MicrosoftStack locale={locale} />
+
+        <a
+          href={`${REPO}#where-cara-sits`}
+          target="_blank"
+          rel="noreferrer"
+          className="font-medium underline underline-offset-2"
+          style={{ color: 'var(--level-3-ink)' }}
+        >
+          {t('runAlongsideLink', locale)}
+        </a>
       </div>
     </div>
   );

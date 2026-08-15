@@ -3,8 +3,9 @@ import type { Level } from '../data/types';
 import type { AssessmentResult } from '../lib/scoring';
 import type { ResolvedCondition } from '../lib/conditions';
 import { groupByOwner, groupByTiming, OWNERS, TIMINGS } from '../lib/conditions';
+import ReadinessChart from './ReadinessChart';
 import type { Locale } from '../i18n/strings';
-import { levelName, ownerName, t, timingName, verdictBlurb, verdictName } from '../i18n/strings';
+import { ownerName, t, timingName, verdictBlurb, verdictName } from '../i18n/strings';
 
 interface Props {
   result: AssessmentResult;
@@ -21,51 +22,6 @@ const VERDICT_LEVEL: Record<string, Level> = {
   go: 2,
   'scale-ready': 3,
 };
-
-/*
- * Six ordinal states are a status encoding, not a magnitude one, so this is
- * deliberately not a radar chart: radar distorts area and its axis order is
- * arbitrary. Each dimension gets a four-step track with the level named in
- * text beside it, so the reading survives colour vision deficiency, a
- * projector and a black and white printout.
- */
-function DimensionRow({ name, level, locale }: { name: string; level: Level | null; locale: Locale }) {
-  return (
-    <div className="print-block flex flex-wrap items-center gap-x-3 gap-y-2 py-3">
-      {/* Full width on narrow screens: inline, the long dimension names collide
-          with the track and wrap into an unreadable column. */}
-      <span
-        className="w-full min-w-0 text-sm font-medium sm:w-auto sm:flex-1"
-        style={{ color: 'var(--ink)' }}
-      >
-        {name}
-      </span>
-
-      <span aria-hidden="true" className="flex gap-1">
-        {([0, 1, 2, 3] as Level[]).map((step) => (
-          <span
-            key={step}
-            className="h-2 w-8 rounded-full"
-            style={{
-              background:
-                level !== null && step <= level ? `var(--level-${level})` : 'var(--hairline)',
-            }}
-          />
-        ))}
-      </span>
-
-      <span
-        className="w-28 shrink-0 rounded-full px-2.5 py-1 text-center text-xs font-semibold"
-        style={{
-          background: level !== null ? `var(--level-${level}-wash)` : 'transparent',
-          color: level !== null ? `var(--level-${level})` : 'var(--ink-muted)',
-        }}
-      >
-        {level !== null ? levelName(level, locale) : '—'}
-      </span>
-    </div>
-  );
-}
 
 function ConditionItem({ condition, locale }: { condition: ResolvedCondition; locale: Locale }) {
   return (
@@ -125,7 +81,7 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
         <p className="text-xs font-semibold tracking-wide uppercase" style={{ color: 'var(--ink-secondary)' }}>
           {t('yourVerdict', locale)}
         </p>
-        <h2 className="mt-1 text-3xl font-bold" style={{ color: `var(--level-${verdictLevel})` }}>
+        <h2 className="mt-1 text-3xl font-bold" style={{ color: `var(--level-${verdictLevel}-ink)` }}>
           {verdictName(result.verdict, locale)}
         </h2>
         <p className="mt-3 max-w-2xl leading-relaxed" style={{ color: 'var(--ink-secondary)' }}>
@@ -144,21 +100,9 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
         </p>
       )}
 
-      <section className="mt-8">
-        <h3 className="text-lg font-semibold" style={{ color: 'var(--ink)' }}>
-          {t('dimensionScores', locale)}
-        </h3>
-        <div className="mt-2 divide-y" style={{ borderColor: 'var(--hairline)' }}>
-          {result.dimensions.map((d) => (
-            <DimensionRow
-              key={d.dimension.id}
-              name={`${d.dimension.number}. ${d.dimension.name}`}
-              level={d.level}
-              locale={locale}
-            />
-          ))}
-        </div>
-      </section>
+      <div className="mt-8">
+        <ReadinessChart result={result} locale={locale} />
+      </div>
 
       <section className="mt-10">
         <div className="flex flex-wrap items-center justify-between gap-3">

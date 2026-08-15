@@ -34,7 +34,7 @@ export default function QuestionCard({
           {question.pilotCritical && (
             <span
               className="rounded-full px-2 py-0.5 font-semibold"
-              style={{ background: 'var(--level-0-wash)', color: 'var(--level-0)' }}
+              style={{ background: 'var(--level-0-wash)', color: 'var(--level-0-ink)' }}
               title={t('pilotCriticalHint', locale)}
             >
               {t('pilotCritical', locale)}

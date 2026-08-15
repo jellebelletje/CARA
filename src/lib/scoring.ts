@@ -32,6 +32,57 @@ export interface AssessmentResult {
   dimensions: DimensionResult[];
   conditions: ResolvedCondition[];
   verdict: Verdict;
+  readiness: Readiness;
+}
+
+export interface Readiness {
+  /**
+   * 0 to 100, the share of the maximum level actually reached. Null until
+   * something is answered.
+   *
+   * This is a progress figure for tracking movement between assessments, and
+   * it is explicitly NOT the decision. A high percentage alongside one red
+   * dimension is still a no-go, because a single fatal gap is exactly what an
+   * average is good at hiding. The verdict stays the headline.
+   */
+  percent: number | null;
+  answered: number;
+  total: number;
+  /** How many answered questions sit at each level. */
+  distribution: Record<Level, number>;
+}
+
+/** A dimension's own percentage, on the same 0 to 100 scale. */
+export const dimensionPercent = (r: DimensionResult): number | null =>
+  r.mean === null ? null : Math.round((r.mean / 3) * 100);
+
+function computeReadiness(
+  results: DimensionResult[],
+  inScope: Question[],
+  answers: Answers,
+): Readiness {
+  const distribution: Record<Level, number> = { 0: 0, 1: 0, 2: 0, 3: 0 };
+  let answered = 0;
+
+  for (const q of inScope) {
+    const answer = answers[q.id];
+    if (typeof answer !== 'number') continue;
+    distribution[answer] += 1;
+    answered += 1;
+  }
+
+  // The mean of the dimension means, not of every question, so that a dimension
+  // with nine questions does not outweigh one with seven. Dimensions carry equal
+  // weight in the verdict, and the headline figure should agree with it.
+  const scored = results.filter((r) => r.mean !== null);
+  const percent =
+    scored.length === 0
+      ? null
+      : Math.round(
+          (scored.reduce<number>((sum, r) => sum + (r.mean as number) / 3, 0) / scored.length) * 100,
+        );
+
+  return { percent, answered, total: inScope.length, distribution };
 }
 
 const SCALE_READY_MINIMUM = 4;
@@ -149,5 +200,11 @@ export function assess(answers: Answers, form: FormLength = 'full'): AssessmentR
     ),
   );
 
-  return { form, dimensions: results, conditions, verdict: computeVerdict(results, conditions) };
+  return {
+    form,
+    dimensions: results,
+    conditions,
+    verdict: computeVerdict(results, conditions),
+    readiness: computeReadiness(results, inScope, answers),
+  };
 }

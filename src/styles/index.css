@@ -13,75 +13,71 @@
  * its name in text, which is also what discharges the sub-3:1 contrast warnings
  * on the amber and aqua steps.
  */
+/*
+ * Light is the default and is not tied to the operating system setting. This is
+ * a client-facing instrument, usually shown on a shared screen or a projector
+ * and often printed, and light reads better in all three. Dark is available
+ * through the toggle, which stamps data-theme on the root element.
+ *
+ * Each level has three tokens, not one. The mark colour is the validated hue,
+ * the wash is a tinted background, and the ink is a darker step of the same hue
+ * used for text on that wash. Using the mark colour as text on a pale wash was
+ * the weak point of the first pass: it looked washed out and failed contrast.
+ */
 :root {
   color-scheme: light;
 
-  --surface: #fcfcfb;
+  --surface: #ffffff;
   --surface-raised: #ffffff;
-  --page: #f9f9f7;
+  --page: #f4f4f2;
   --ink: #0b0b0b;
-  --ink-secondary: #52514e;
-  --ink-muted: #898781;
-  --hairline: #e1e0d9;
-  --border: rgba(11, 11, 11, 0.1);
+  --ink-secondary: #45443f;
+  --ink-muted: #6b6963;
+  --hairline: #d9d8d0;
+  --border: rgba(11, 11, 11, 0.16);
 
   --level-0: #d03b3b;
   --level-1: #eda100;
   --level-2: #1baf7a;
   --level-3: #2a78d6;
 
-  --level-0-wash: #fbeceb;
-  --level-1-wash: #fdf4e0;
-  --level-2-wash: #e7f7f1;
-  --level-3-wash: #e8f1fc;
-}
+  --level-0-wash: #fbe3e2;
+  --level-1-wash: #fdf0d6;
+  --level-2-wash: #dcf3ea;
+  --level-3-wash: #dfebfb;
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    color-scheme: dark;
-
-    --surface: #1a1a19;
-    --surface-raised: #232322;
-    --page: #0d0d0d;
-    --ink: #ffffff;
-    --ink-secondary: #c3c2b7;
-    --ink-muted: #898781;
-    --hairline: #2c2c2a;
-    --border: rgba(255, 255, 255, 0.1);
-
-    --level-0: #b83232;
-    --level-1: #c98500;
-    --level-2: #199e70;
-    --level-3: #3987e5;
-
-    --level-0-wash: #2a1817;
-    --level-1-wash: #251d0d;
-    --level-2-wash: #10241d;
-    --level-3-wash: #121e2c;
-  }
+  --level-0-ink: #a02020;
+  --level-1-ink: #8a5c00;
+  --level-2-ink: #0d6b4a;
+  --level-3-ink: #1a5296;
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --surface: #1a1a19;
-  --surface-raised: #232322;
-  --page: #0d0d0d;
+  --surface: #1f1f1e;
+  --surface-raised: #292928;
+  --page: #141413;
   --ink: #ffffff;
-  --ink-secondary: #c3c2b7;
-  --ink-muted: #898781;
-  --hairline: #2c2c2a;
-  --border: rgba(255, 255, 255, 0.1);
+  --ink-secondary: #d5d4c9;
+  --ink-muted: #a3a199;
+  --hairline: #3a3a37;
+  --border: rgba(255, 255, 255, 0.18);
 
   --level-0: #b83232;
   --level-1: #c98500;
   --level-2: #199e70;
   --level-3: #3987e5;
 
-  --level-0-wash: #2a1817;
-  --level-1-wash: #251d0d;
-  --level-2-wash: #10241d;
-  --level-3-wash: #121e2c;
+  --level-0-wash: #3b1e1d;
+  --level-1-wash: #33280f;
+  --level-2-wash: #143026;
+  --level-3-wash: #17293c;
+
+  --level-0-ink: #f08f8f;
+  --level-1-ink: #eab551;
+  --level-2-ink: #4fc79b;
+  --level-3-ink: #7fb2f0;
 }
 
 html {

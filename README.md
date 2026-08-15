@@ -2,10 +2,6 @@
 
 **Run the assessment: [jellebelletje.github.io/CARA](https://jellebelletje.github.io/CARA/)**
 
-> Not live yet. The link is the address the assessment will be published to, and it goes live
-> with the first deploy of the application. Until then, the question bank is readable at
-> [content/questions.md](content/questions.md).
-
 A scored readiness assessment for the question organisations actually ask before starting a
 Microsoft 365 Copilot pilot: **what has to be in place before we can start?**
 

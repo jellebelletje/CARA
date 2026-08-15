@@ -49,7 +49,7 @@ export default function LevelPicker({ question, answer, onChange, locale }: Prop
             <span className="min-w-0">
               <span
                 className="block text-sm font-semibold"
-                style={{ color: selected ? 'var(--ink)' : 'var(--ink-secondary)' }}
+                style={{ color: selected ? `var(--level-${level}-ink)` : 'var(--ink-secondary)' }}
               >
                 {levelName(level, locale)}
               </span>

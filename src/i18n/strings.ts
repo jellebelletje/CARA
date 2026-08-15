@@ -58,6 +58,9 @@ const en = {
   results: 'Results',
   yourVerdict: 'Verdict',
   dimensionScores: 'Dimensions',
+  readinessScore: 'Readiness',
+  readinessCaveat:
+    'A progress figure for tracking movement between assessments. It is not the decision: an average is very good at hiding a single fatal gap, so the verdict above governs.',
   launchConditions: 'Launch conditions',
   noConditions: 'Nothing outstanding. Every dimension came back Ready or better.',
   groupByTiming: 'By timing',
@@ -76,7 +79,9 @@ const en = {
 
   runAlongside: 'Run these alongside CARA',
   runAlongsideBody:
-    'CARA covers whether the organisation can absorb the change. These cover whether you can deploy safely, and whether adoption is happening.',
+    'A complete Copilot decision needs four stages, and CARA is one of them. Microsoft provides real, runnable instruments for the other three: the Optimization Assessment and Readiness Report for technical eligibility, Purview DSPM for AI and SharePoint Advanced Management for oversharing and data governance, and the adoption and impact reports for what happens once people start using it.',
+  runAlongsideLink: 'More detail on all of these in the README',
+  stage: 'Stage',
 
   creditPrefix: 'CARA by',
   creditAuthor: 'Jelmar Groot',
