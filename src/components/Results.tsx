@@ -7,7 +7,7 @@ import ReadinessChart from './ReadinessChart';
 import type { Locale } from '../i18n/strings';
 import { ownerName, t, timingName, verdictBlurb, verdictName } from '../i18n/strings';
 import { conditionAction, questionRef } from '../i18n/questionText';
-import { buildMailto } from '../i18n/emailReport';
+import EmailActions from './EmailActions';
 
 interface Props {
   result: AssessmentResult;
@@ -59,8 +59,6 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
 
   const byTiming = groupByTiming(result.conditions);
   const byOwner = groupByOwner(result.conditions);
-
-  const mailto = buildMailto(result, shareLink, locale);
 
   return (
     <div>
@@ -169,7 +167,7 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
         )}
       </section>
 
-      <div className="no-print mt-10 flex flex-wrap gap-3">
+      <div className="no-print mt-10 flex flex-wrap items-center gap-3">
         <button
           type="button"
           onClick={() => window.print()}
@@ -178,13 +176,6 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
         >
           {t('downloadPdf', locale)}
         </button>
-        <a
-          href={mailto}
-          className="rounded-lg border px-4 py-2 text-sm font-medium"
-          style={{ borderColor: 'var(--border)', color: 'var(--ink)' }}
-        >
-          {t('emailToMe', locale)}
-        </a>
         <button
           type="button"
           onClick={onEdit}
@@ -201,6 +192,10 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
         >
           {t('startOver', locale)}
         </button>
+      </div>
+
+      <div className="no-print mt-3">
+        <EmailActions result={result} shareLink={shareLink} locale={locale} />
       </div>
     </div>
   );
