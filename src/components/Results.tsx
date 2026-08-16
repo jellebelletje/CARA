@@ -6,7 +6,8 @@ import { groupByOwner, groupByTiming, OWNERS, TIMINGS } from '../lib/conditions'
 import ReadinessChart from './ReadinessChart';
 import type { Locale } from '../i18n/strings';
 import { ownerName, t, timingName, verdictBlurb, verdictName } from '../i18n/strings';
-import { conditionAction } from '../i18n/questionText';
+import { conditionAction, questionRef } from '../i18n/questionText';
+import { buildMailto } from '../i18n/emailReport';
 
 interface Props {
   result: AssessmentResult;
@@ -42,7 +43,7 @@ function ConditionItem({ condition, locale }: { condition: ResolvedCondition; lo
         <span className="font-medium">{ownerName(condition.owner, locale)}</span>
         <span>{timingName(condition.timing, locale)}</span>
         <span>
-          {t('triggeredBy', locale)} {condition.triggeredBy.join(', ')}
+          {t('triggeredBy', locale)} {condition.triggeredBy.map(questionRef).join(', ')}
         </span>
       </p>
     </li>
@@ -51,7 +52,6 @@ function ConditionItem({ condition, locale }: { condition: ResolvedCondition; lo
 
 export default function Results({ result, shareLink, onEdit, onStartOver, locale }: Props) {
   const [grouping, setGrouping] = useState<'timing' | 'owner'>('timing');
-  const [copied, setCopied] = useState(false);
 
   const verdictLevel = VERDICT_LEVEL[result.verdict];
   const unanswered = result.dimensions.reduce((n, d) => n + d.unansweredIds.length, 0);
@@ -60,15 +60,7 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
   const byTiming = groupByTiming(result.conditions);
   const byOwner = groupByOwner(result.conditions);
 
-  const copyLink = async () => {
-    await navigator.clipboard.writeText(shareLink);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const mailto = `mailto:?subject=${encodeURIComponent(t('emailSubject', locale))}&body=${encodeURIComponent(
-    `${verdictName(result.verdict, locale)}\n\n${verdictBlurb(result.verdict, locale)}\n\n${shareLink}`,
-  )}`;
+  const mailto = buildMailto(result, shareLink, locale);
 
   return (
     <div>
@@ -193,14 +185,6 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
         >
           {t('emailToMe', locale)}
         </a>
-        <button
-          type="button"
-          onClick={copyLink}
-          className="rounded-lg border px-4 py-2 text-sm font-medium"
-          style={{ borderColor: 'var(--border)', color: 'var(--ink)' }}
-        >
-          {copied ? t('linkCopied', locale) : t('copyLink', locale)}
-        </button>
         <button
           type="button"
           onClick={onEdit}

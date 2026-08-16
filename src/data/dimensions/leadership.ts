@@ -67,34 +67,6 @@ export const leadershipQuestions: Question[] = [
     },
   },
   {
-    id: 'lead-03',
-    dimension: 'lead',
-    text: "Do the pilot cohort's line managers visibly use Copilot themselves, in front of their teams?",
-    why: 'Work Trend Index 2026 found organisational factors carry roughly twice the AI impact of individual factors, and Frontier Professionals have a manager who openly uses AI 85% of the time against 64% for their peers. This is the strongest lever available before launch.',
-    pilotCritical: true,
-    anchors: {
-      0: 'No manager in the cohort holds a licence, or managers have delegated Copilot entirely to their teams.',
-      1: 'Some managers are licensed and curious, but nothing is visible to their teams. No demos, no shared prompts, no mention in team meetings.',
-      2: 'Named cohort managers have committed to a recurring visible ritual using Copilot, and to sharing what worked.',
-      3: 'Manager modelling is expected practice beyond the cohort, managers set quality standards for AI-assisted output, and peers can name specific examples.',
-    },
-    conditions: {
-      0: {
-        action: "Licence and brief the cohort's line managers before any end-user launch. A pilot whose managers are absent produces adoption data you cannot trust.",
-        owner: 'organisation',
-        timing: 'before-pilot',
-        mergeKey: 'manager-enablement',
-      },
-      1: {
-        action: 'Run a 60-minute manager enablement session and agree one visible weekly ritual per manager.',
-        owner: 'joint',
-        timing: 'before-pilot',
-        mergeKey: 'manager-enablement',
-      },
-    },
-    source: WTI_2026,
-  },
-  {
     id: 'lead-04',
     dimension: 'lead',
     text: 'Have leaders said out loud what happens to time that Copilot frees up?',
@@ -135,7 +107,7 @@ export const leadershipQuestions: Question[] = [
     },
     conditions: {
       0: {
-        action: 'Publish a one-page accountability standard covering who owns AI-assisted output and which work requires verification before it leaves the organisation.',
+        action: 'Publish a one-page accountability standard covering who owns AI-assisted output, and which work requires verification before it leaves the organisation.',
         owner: 'organisation',
         timing: 'before-pilot',
         mergeKey: 'accountability-standard',
@@ -179,12 +151,12 @@ export const leadershipQuestions: Question[] = [
   {
     id: 'lead-07',
     dimension: 'lead',
-    text: 'Are IT, security, HR/People and the business function aligned behind this, or is it an IT-initiated project?',
+    text: 'Are IT, security, HR/People and the business function aligned on this, or is it an IT-only affair?',
     why: 'An IT-only pilot can deploy but cannot change behaviour. The absence of HR/People in particular shows up later as no skilling and no manager engagement.',
-    pilotCritical: false,
+    pilotCritical: true,
     anchors: {
-      0: 'The pilot is IT-initiated, and neither the business function nor HR/People has been engaged.',
-      1: 'Other functions have been informed but hold no stake, no tasks and no representation in the pilot team.',
+      0: 'Only IT is behind this. Neither the business function nor HR/People is engaged, whoever first raised it.',
+      1: 'The other functions have been informed but hold no stake, no tasks and no representation in the pilot team.',
       2: 'IT, security, HR/People and the business function each have a named representative with tasks in the pilot plan.',
       3: 'Those functions share a standing forum for AI adoption that outlives this pilot.',
     },

@@ -31,21 +31,6 @@ export const nlLeadership: Record<string, QuestionOverlay> = {
     },
   },
 
-  'lead-03': {
-    text: 'Gebruiken de leidinggevenden van de pilotgroep Copilot zichtbaar zelf, waar hun team bij is?',
-    why: "De Work Trend Index 2026 vond dat organisatiefactoren ongeveer twee keer zoveel gewicht in de schaal leggen als individuele factoren, en dat Frontier Professionals in 85 procent van de gevallen een leidinggevende hebben die openlijk AI gebruikt, tegen 64 procent bij hun collega's. Dit is de sterkste knop waar je voor de start aan kunt draaien.",
-    anchors: {
-      0: 'Geen enkele leidinggevende in de groep heeft een licentie, of ze hebben Copilot volledig aan hun team overgelaten.',
-      1: "Een paar leidinggevenden hebben een licentie en zijn nieuwsgierig, maar hun team ziet er niets van. Geen demo's, geen gedeelde prompts, geen woord erover in het teamoverleg.",
-      2: 'Leidinggevenden met naam hebben zich vastgelegd op een terugkerend, zichtbaar moment waarop ze Copilot gebruiken, en op het delen van wat werkte.',
-      3: "Voorbeeldgedrag van leidinggevenden is de norm buiten de groep, zij stellen kwaliteitseisen aan AI-ondersteund werk, en collega's kunnen concrete voorbeelden noemen.",
-    },
-    conditions: {
-      0: 'Geef de leidinggevenden van de groep een licentie en een briefing voordat er iets naar de eindgebruikers gaat. Een pilot zonder aanwezige leidinggevenden levert adoptiecijfers op waar je niets aan hebt.',
-      1: 'Houd een sessie van een uur met de leidinggevenden en spreek per persoon een zichtbaar wekelijks moment af.',
-    },
-  },
-
   'lead-04': {
     text: 'Hebben leidinggevenden hardop gezegd wat er gebeurt met de tijd die Copilot vrijspeelt?',
     why: 'De onuitgesproken vraag over banen. Blijft die onbeantwoord, dan rapporteren mensen stilletjes minder tijdwinst dan er is, en daarmee vervuil je precies de meting waarvoor je de pilot draait.',
@@ -92,11 +77,11 @@ export const nlLeadership: Record<string, QuestionOverlay> = {
   },
 
   'lead-07': {
-    text: 'Staan IT, security, HR en de business hier samen achter, of is dit een initiatief van IT?',
+    text: 'Zitten IT, security, HR en de business hier op één lijn, of is het een IT-feestje?',
     why: 'Een pilot die alleen van IT is, kan wel uitrollen maar geen gedrag veranderen. Het ontbreken van HR wreekt zich later als geen opleiding en geen betrokken leidinggevenden.',
     anchors: {
-      0: 'De pilot komt uit IT, en noch de business noch HR is erbij betrokken.',
-      1: 'Andere afdelingen zijn geïnformeerd, maar hebben geen belang, geen taken en geen vertegenwoordiging in het pilotteam.',
+      0: 'Alleen IT staat hierachter. Noch de business noch HR is betrokken, wie het ook heeft aangekaart.',
+      1: 'De andere afdelingen zijn geïnformeerd, maar hebben geen belang, geen taken en geen vertegenwoordiging in het pilotteam.',
       2: 'IT, security, HR en de business hebben elk een vertegenwoordiger met naam, met taken in het pilotplan.',
       3: 'Die afdelingen delen een vast overleg over AI-adoptie dat deze pilot overleeft.',
     },

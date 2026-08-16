@@ -26,7 +26,7 @@ export const nlSkills: Record<string, QuestionOverlay> = {
       3: 'Controleren is een zichtbare norm, en mensen leggen AI-ondersteund werk uit zichzelf voor waar de norm dat vraagt.',
     },
     conditions: {
-      0: 'Train controleren voor de start samen met prompten, expliciet gekoppeld aan de norm uit lead-05.',
+      0: 'Train controleren voor de start samen met prompten, expliciet gekoppeld aan de norm die het management heeft gesteld voor AI-ondersteund werk.',
       1: 'Laat elke rol de eigen taken indelen naar of de output eerst gecontroleerd moet worden.',
     },
   },

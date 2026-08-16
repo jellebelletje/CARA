@@ -12,7 +12,7 @@ export const dimensions: Dimension[] = [
     number: 1,
     name: 'Leadership and sponsorship',
     premise:
-      'Whether anyone with authority is visibly behind this, and whether managers model the behaviour they are asking for.',
+      'Whether anyone with authority is visibly behind this, and whether the organisation is aligned enough behind it to change behaviour.',
   },
   {
     id: 'case',
@@ -33,7 +33,7 @@ export const dimensions: Dimension[] = [
     number: 4,
     name: 'Skills',
     premise:
-      'Whether people can get a good result safely, and whether the environment lets Copilot see the work in the first place.',
+      'Whether people can get a good result safely on day one. Most of this skill is built during the pilot itself, so what is scored here is the floor you need before launch and whether the rest is planned, not mastery.',
   },
   {
     id: 'enab',

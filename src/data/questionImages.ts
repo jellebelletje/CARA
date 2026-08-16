@@ -29,7 +29,6 @@ export const questionImages: Record<string, string> = {
   // Leadership and sponsorship
   'lead-01': 'photo-1507679799987-c73779587ccf',
   'lead-02': 'photo-1505778276668-26b3ff7af103',
-  'lead-03': 'photo-1522881193457-37ae97c905bf',
   'lead-04': 'photo-1518281361980-b26bfd556770',
   'lead-05': 'photo-1619477274083-4c7f5045573a',
   'lead-06': 'photo-1554224155-6726b3ff858f',

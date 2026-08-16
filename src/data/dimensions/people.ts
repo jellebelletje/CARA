@@ -32,7 +32,7 @@ export const peopleQuestions: Question[] = [
     id: 'ppl-02',
     dimension: 'ppl',
     text: 'Do you have a read on how the cohort currently feels about AI at work, captured rather than assumed?',
-    why: 'This is the people-side baseline and, like the value baseline, it is unrecoverable once licences land. A short pre-survey now is what lets you show a sentiment shift later. Pairs with meas-10.',
+    why: 'This is the people-side baseline and, like the value baseline, it is unrecoverable once licences land. A short pre-survey now is what lets you show a sentiment shift later, provided you close with the same questions you opened with.',
     pilotCritical: false,
     anchors: {
       0: 'Nobody has asked the cohort how they feel about AI at work, and the plan assumes enthusiasm.',
@@ -86,7 +86,7 @@ export const peopleQuestions: Question[] = [
     id: 'ppl-04',
     dimension: 'ppl',
     text: 'Is there a clear, communicated position on how Copilot usage data will and will not be used, particularly at individual level?',
-    why: 'You are about to instrument people\'s work. If nobody has said "this will not appear in your performance review", a portion of the cohort will rationally minimise their footprint. Pairs with meas-08, which is the decision behind this communication.',
+    why: 'You are about to instrument people\'s work. If nobody has said "this will not appear in your performance review", a portion of the cohort will rationally minimise their footprint. This is the promise itself. Whether the reporting is actually built to keep it is asked separately, under Measurement.',
     pilotCritical: true,
     anchors: {
       0: 'Nothing has been said, and the cohort has not asked because they assume the worst.',

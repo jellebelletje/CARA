@@ -1,6 +1,7 @@
 import type { Dimension, Level, Question } from '../data/types';
 import type { ResolvedCondition } from '../lib/conditions';
 import type { Locale } from './strings';
+import { dimensions as allDimensions, questions as allQuestions } from '../data/assessment';
 import { nlDimensions, nlQuestions } from './nl';
 
 /**
@@ -56,3 +57,16 @@ export const dimensionPremise = (d: Dimension, locale: Locale): string =>
 export const conditionAction = (condition: ResolvedCondition, locale: Locale): string =>
   questionOverlays[locale]?.[condition.sourceQuestionId]?.conditions?.[condition.severity] ??
   condition.action;
+
+/**
+ * A reader-facing reference for a question, as "dimension.position", e.g. 1.3.
+ * The results page numbers the dimensions 1 to 6, so this is decipherable,
+ * whereas the internal id "lead-01" means nothing to anyone but the author.
+ */
+export const questionRef = (id: string): string => {
+  const q = allQuestions.find((x) => x.id === id);
+  if (!q) return id;
+  const dimension = allDimensions.find((d) => d.id === q.dimension);
+  const position = allQuestions.filter((x) => x.dimension === q.dimension).indexOf(q) + 1;
+  return dimension ? `${dimension.number}.${position}` : id;
+};

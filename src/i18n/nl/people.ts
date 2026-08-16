@@ -18,7 +18,7 @@ export const nlPeople: Record<string, QuestionOverlay> = {
 
   'ppl-02': {
     text: 'Weet je hoe de groep nu tegenover AI op het werk staat, gemeten in plaats van aangenomen?',
-    why: 'Dit is de nulmeting aan de menskant, en net als bij de waarde is die onherstelbaar weg zodra de licenties landen. Een korte peiling nu is wat je later in staat stelt een verschuiving te laten zien.',
+    why: 'Dit is de nulmeting aan de menskant, en net als bij de waarde is die onherstelbaar weg zodra de licenties landen. Een korte peiling nu is wat je later in staat stelt een verschuiving te laten zien, mits je afsluit met dezelfde vragen.',
     anchors: {
       0: 'Niemand heeft de groep gevraagd hoe ze tegenover AI op het werk staan, en het plan gaat uit van enthousiasme.',
       1: 'Het beeld komt uit een paar gesprekken en zit in niemands hoofd op een herhaalbare manier.',
@@ -48,7 +48,7 @@ export const nlPeople: Record<string, QuestionOverlay> = {
 
   'ppl-04': {
     text: 'Is er een duidelijke, gecommuniceerde lijn over wat er wel en niet met de gebruiksdata van Copilot gebeurt, en zeker op persoonsniveau?',
-    why: 'Je gaat het werk van mensen meten. Als niemand heeft gezegd "dit komt niet in je beoordeling terecht", dan houdt een deel van de groep zich met goede reden in.',
+    why: 'Je gaat het werk van mensen meten. Als niemand heeft gezegd "dit komt niet in je beoordeling terecht", dan houdt een deel van de groep zich met goede reden in. Dit is de belofte zelf. Of de rapportage ook echt zo is ingericht, vragen we apart onder Meten.',
     anchors: {
       0: 'Er is niets over gezegd, en de groep vraagt er niet naar omdat ze het ergste aanneemt.',
       1: 'Er is intern een bedoeling over data op persoonsniveau, maar die is niet naar de groep gecommuniceerd.',

@@ -92,7 +92,7 @@ the entire point of a go/no-go instrument.
 
 ## The question bank
 
-47 questions across six dimensions. See [content/questions.md](content/questions.md), which is
+46 questions across six dimensions. See [content/questions.md](content/questions.md), which is
 the human-readable source of truth. The app reads a typed mirror of it.
 
 Full form for a proper engagement, short form (the pilot-critical subset) for a first
@@ -125,7 +125,7 @@ fallback to English would otherwise hide the gap.
 
 ## Status
 
-In development. 47 questions with full rubrics and launch conditions, in two languages, with the
+In development. 46 questions with full rubrics and launch conditions, in two languages, with the
 scoring engine under test.
 
 ## Using CARA in your own organisation

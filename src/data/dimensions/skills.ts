@@ -42,7 +42,7 @@ export const skillsQuestions: Question[] = [
     },
     conditions: {
       0: {
-        action: 'Train verification alongside prompting before launch, tied explicitly to the accountability standard from lead-05.',
+        action: 'Train verification alongside prompting before launch, tied explicitly to the accountability standard leadership has set for AI-assisted work.',
         owner: 'coach',
         timing: 'before-pilot',
         mergeKey: 'core-skilling',
@@ -140,7 +140,7 @@ export const skillsQuestions: Question[] = [
     id: 'skill-06',
     dimension: 'skill',
     text: 'Is the underlying M365 hygiene in place that Copilot depends on, such as files in SharePoint or OneDrive rather than local drives, and meetings actually transcribed?',
-    why: 'Copilot can only reason over what it can see. A cohort that emails attachments around and never records meetings has capped Copilot before anyone types a prompt. Pairs with case-04.',
+    why: 'Copilot can only reason over what it can see. A cohort that emails attachments around and never records meetings has capped Copilot before anyone types a prompt.',
     pilotCritical: true,
     anchors: {
       0: 'Work lives on local drives or in email attachments, and meetings are neither recorded nor transcribed.',

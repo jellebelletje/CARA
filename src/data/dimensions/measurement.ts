@@ -103,7 +103,7 @@ export const measurementQuestions: Question[] = [
     id: 'meas-04',
     dimension: 'meas',
     text: 'Is there a route for qualitative feedback, including "this is not working for me", that reaches someone who can act on it?',
-    why: 'Moved here deliberately from People readiness. Drop-off is your most valuable signal, and telemetry only shows you that it happened, never why.',
+    why: 'Drop-off is your most valuable signal, and telemetry only shows you that it happened, never why.',
     pilotCritical: false,
     anchors: {
       0: 'There is no route for qualitative feedback. Telemetry is the only signal.',
@@ -212,7 +212,7 @@ export const measurementQuestions: Question[] = [
     id: 'meas-08',
     dimension: 'meas',
     text: 'Have you decided the reporting granularity and the privacy line, for example group level rather than individual level?',
-    why: 'This is the decision, where ppl-04 is the communication of it. Both are needed and they fail separately, because many organisations communicate a reassurance they have not actually designed the reporting to honour.',
+    why: 'This is the decision behind the promise you make to people about their usage data. Both are needed and they fail separately, because many organisations communicate a reassurance they have not actually designed the reporting to honour.',
     pilotCritical: false,
     anchors: {
       0: 'Reporting granularity has not been decided, so individual-level reporting is the default.',
@@ -268,7 +268,7 @@ export const measurementQuestions: Question[] = [
     id: 'meas-10',
     dimension: 'meas',
     text: 'Will you re-measure the people-side baseline at the end, using the same instrument you used at the start?',
-    why: 'Pairs with ppl-02. A sentiment shift is often the clearest result a pilot produces, but only if both measurements use the same questions.',
+    why: 'A sentiment shift is often the clearest result a pilot produces, but only if the closing measurement repeats the questions you opened with.',
     pilotCritical: false,
     anchors: {
       0: 'There is no plan to re-measure anything on the people side at the end.',

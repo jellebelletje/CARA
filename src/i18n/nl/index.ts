@@ -10,7 +10,7 @@ export const nlDimensions: Record<string, DimensionOverlay> = {
   lead: {
     name: 'Leiderschap en sponsorship',
     premise:
-      'Of er iemand met gezag zichtbaar achter staat, en of leidinggevenden het gedrag voordoen dat ze van anderen vragen.',
+      'Of er iemand met gezag zichtbaar achter staat, en of de organisatie genoeg op één lijn zit om gedrag te kunnen veranderen.',
   },
   case: {
     name: 'Toepassingen en waarde',
@@ -25,7 +25,7 @@ export const nlDimensions: Record<string, DimensionOverlay> = {
   skill: {
     name: 'Vaardigheden',
     premise:
-      'Of mensen er veilig een goed resultaat uit halen, en of de omgeving Copilot het werk überhaupt laat zien.',
+      'Of mensen er vanaf dag één veilig een goed resultaat uit halen. Het meeste hiervan bouw je tijdens de pilot zelf op, dus wat hier telt is de ondergrens die je bij de start nodig hebt en of de rest gepland staat, niet of mensen het al beheersen.',
   },
   enab: {
     name: 'Ondersteuning',

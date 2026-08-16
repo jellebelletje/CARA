@@ -43,9 +43,9 @@ const en = {
   chooseForm: 'Choose the length',
   fullForm: 'Full assessment',
   shortForm: 'Short form',
-  fullFormDetail: 'All 47 questions. For a proper engagement.',
+  fullFormDetail: 'Every question. For a proper engagement.',
   shortFormDetail:
-    'The 21 questions that can produce a no-go. For a first conversation. It can never miss a blocker, but it will miss some launch conditions.',
+    'Only the questions that can produce a no-go. For a first conversation. It can never miss a blocker, but it will miss some launch conditions.',
   start: 'Start the assessment',
   resume: 'Resume where you left off',
 
@@ -77,7 +77,7 @@ const en = {
     'Nothing scored yet, so there is nothing to act on. Answer the questions to see what a pilot would need.',
   groupByTiming: 'By timing',
   groupByOwner: 'By owner',
-  triggeredBy: 'From',
+  triggeredBy: 'From question',
   answered: 'answered',
   unansweredWarning: 'Some questions are still unanswered, so this verdict is provisional.',
   unknownCriticalWarning:
@@ -139,9 +139,9 @@ const nl: Partial<Record<StringKey, string>> = {
   chooseForm: 'Kies de lengte',
   fullForm: 'Volledige scan',
   shortForm: 'Korte versie',
-  fullFormDetail: 'Alle 47 vragen. Voor een volwaardig traject.',
+  fullFormDetail: 'Alle vragen. Voor een volwaardig traject.',
   shortFormDetail:
-    'De 21 vragen die tot een nog-niet kunnen leiden. Voor een eerste gesprek. Hij mist nooit een blokkade, maar wel een deel van de startvoorwaarden.',
+    'Alleen de vragen die tot een nog-niet kunnen leiden. Voor een eerste gesprek. Hij mist nooit een blokkade, maar wel een deel van de startvoorwaarden.',
   start: 'Start de scan',
   resume: 'Ga verder waar je gebleven was',
 
@@ -174,7 +174,7 @@ const nl: Partial<Record<StringKey, string>> = {
     'Er is nog niets gescoord, dus er valt nog niets op te pakken. Beantwoord de vragen om te zien wat een pilot nodig heeft.',
   groupByTiming: 'Op moment',
   groupByOwner: 'Op eigenaar',
-  triggeredBy: 'Uit',
+  triggeredBy: 'Uit vraag',
   answered: 'beantwoord',
   unansweredWarning: 'Een deel van de vragen is nog onbeantwoord, dus dit oordeel is voorlopig.',
   unknownCriticalWarning:

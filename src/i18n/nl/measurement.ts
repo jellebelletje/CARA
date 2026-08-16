@@ -48,7 +48,7 @@ export const nlMeasurement: Record<string, QuestionOverlay> = {
 
   'meas-04': {
     text: 'Is er een route voor kwalitatieve terugkoppeling, inclusief "dit werkt niet voor mij", die terechtkomt bij iemand die er iets mee kan?',
-    why: 'Bewust hierheen gehaald vanuit People readiness. Afhakers zijn je waardevolste signaal, en de cijfers laten alleen zien dat het gebeurde, nooit waarom.',
+    why: 'Afhakers zijn je waardevolste signaal, en de cijfers laten alleen zien dat het gebeurde, nooit waarom.',
     anchors: {
       0: 'Er is geen route voor kwalitatieve terugkoppeling. De cijfers zijn het enige signaal.',
       1: 'Terugkoppeling is in principe welkom, maar heeft geen kanaal en geen eigenaar, dus hij komt nergens aan.',
@@ -108,7 +108,7 @@ export const nlMeasurement: Record<string, QuestionOverlay> = {
 
   'meas-08': {
     text: 'Is besloten op welk niveau je rapporteert en waar de privacygrens ligt, bijvoorbeeld op groepsniveau in plaats van per persoon?',
-    why: 'Dit is de beslissing, waar ppl-04 de communicatie ervan is. Je hebt ze allebei nodig en ze gaan los van elkaar mis, want organisaties beloven geregeld iets wat hun rapportage helemaal niet waarmaakt.',
+    why: 'Dit is de beslissing achter de belofte die je mensen doet over hun gebruiksdata. Je hebt ze allebei nodig en ze gaan los van elkaar mis, want organisaties beloven geregeld iets wat hun rapportage helemaal niet waarmaakt.',
     anchors: {
       0: 'Het rapportageniveau is niet besloten, dus rapporteren per persoon is de standaard.',
       1: 'Er is een voorkeur voor groepsniveau, maar die is niet besloten en niet ingericht.',
@@ -138,7 +138,7 @@ export const nlMeasurement: Record<string, QuestionOverlay> = {
 
   'meas-10': {
     text: 'Ga je de nulmeting aan de menskant aan het eind herhalen, met hetzelfde instrument als bij de start?',
-    why: 'Hoort bij ppl-02. Een verschuiving in houding is vaak het helderste resultaat dat een pilot oplevert, maar alleen als beide metingen dezelfde vragen gebruiken.',
+    why: 'Een verschuiving in houding is vaak het helderste resultaat dat een pilot oplevert, maar alleen als de slotmeting dezelfde vragen gebruikt als bij de start.',
     anchors: {
       0: 'Er is geen plan om aan het eind iets aan de menskant opnieuw te meten.',
       1: 'Een slotmeting is de bedoeling, maar met andere vragen dan bij de start.',
