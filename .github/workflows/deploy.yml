@@ -37,6 +37,11 @@ jobs:
       - run: npm test
 
       - run: npm run build
+        env:
+          # A repository variable, not a secret: the beacon token is visible in
+          # the shipped page by design. If it is unset the build simply omits
+          # the analytics script entirely.
+          VITE_CF_BEACON_TOKEN: ${{ vars.CF_BEACON_TOKEN }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

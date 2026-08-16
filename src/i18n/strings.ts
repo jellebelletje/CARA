@@ -26,7 +26,7 @@ const en = {
   introAfterDimensions:
     'Each dimension is scored on four levels. The result is a go or no-go, and every gap becomes a launch condition: what to do about it, which side owns it, and whether it has to be closed before the pilot starts, alongside it, or before broad rollout.',
   introPrivacy:
-    'Your answers never leave this browser. There is no server and nothing is stored anywhere else. The link you share is the assessment itself, encoded in the address bar.',
+    'Your answers never leave this browser. There is no account and no backend, and nothing you answer is stored anywhere but on this device. The page counts anonymous visits so I know whether anyone is using it. That count can never contain your answers.',
   // Emphasis is marked in the string so a translation can place it where its
   // own sentence structure needs it. See RichText.
   introPilotPoint:
@@ -123,7 +123,7 @@ const nl: Partial<Record<StringKey, string>> = {
   introAfterDimensions:
     'Elke dimensie krijgt een score op vier niveaus. Daaruit volgt een go of een nog-niet, en alles wat ontbreekt wordt een startvoorwaarde: wat eraan te doen is, wie het oppakt, en of het rond moet zijn voordat de pilot begint, tijdens de pilot, of pas voor de brede uitrol.',
   introPrivacy:
-    'Je antwoorden verlaten deze browser niet. Er is geen server en er wordt nergens iets opgeslagen. De link die je deelt is de scan zelf, verpakt in de adresbalk.',
+    'Je antwoorden verlaten deze browser niet. Er is geen account en geen backend, en wat je invult wordt nergens anders bewaard dan op dit apparaat. De pagina telt anonieme bezoeken, zodat ik weet of er iemand gebruik van maakt. In die telling kunnen je antwoorden nooit terechtkomen.',
   introPilotPoint:
     'Een pilot bestaat om vragen te beantwoorden. Daarom vraagt CARA nooit naar iets wat alleen de pilot je kan vertellen. Alleen **Niet klaar** houdt een start tegen. **In opbouw** gaat altijd door, met een voorwaarde eraan vast. **Schaalbaar** is waar je na afloop opnieuw tegen scoort.',
   introNotTechnical:

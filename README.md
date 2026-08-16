@@ -123,6 +123,22 @@ question id, so a third language can be added file by file without touching the 
 fails if any Dutch question, hint, anchor or launch condition is missing, because the runtime
 fallback to English would otherwise hide the gap.
 
+## Analytics
+
+The page counts anonymous visits with Cloudflare Web Analytics: no cookies, no
+fingerprinting, no personal data. It exists to answer one question, whether anyone is using
+this, and nothing finer than that.
+
+It is off unless a token is configured. The build reads `VITE_CF_BEACON_TOKEN`, and with no
+token the script is never injected and the page makes no third-party request at all. A local
+checkout and a fork are therefore silent by default.
+
+**Answers can never reach it.** The share link encodes answers in the URL fragment, so the
+fragment is read once on load and stripped from the address bar immediately, and nothing
+writes it back. A share link is built on demand when you copy the report. Any analytics that
+reported `location.href` would otherwise have shipped a complete set of client answers to a
+third party, which is the failure this design exists to prevent.
+
 ## Status
 
 In development. 46 questions with full rubrics and launch conditions, in two languages, with the

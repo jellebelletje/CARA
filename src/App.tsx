@@ -4,7 +4,7 @@ import { dimensions } from './data/assessment';
 import type { Answers, FormLength } from './lib/forms';
 import { questionsInForm } from './lib/forms';
 import { assess } from './lib/scoring';
-import { decodeState, encodeState, shareUrl } from './lib/shareState';
+import { decodeState, shareUrl } from './lib/shareState';
 import type { Locale } from './i18n/strings';
 import { DEFAULT_LOCALE, LOCALES, LOCALE_LABELS, t } from './i18n/strings';
 import Intro from './components/Intro';
@@ -39,6 +39,15 @@ interface Persisted {
 
 function loadInitial(): Persisted & { fromLink: boolean } {
   const fromHash = window.location.hash ? decodeState(window.location.hash) : null;
+
+  // Read the hash once, then strip it from the address bar. Answers must never
+  // sit in location.href while the page is open, because anything with script
+  // access can read it, analytics included. The session is in memory and in
+  // localStorage from here on, and a share link is built on demand.
+  if (window.location.hash) {
+    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
   if (fromHash) {
     // A link only jumps straight to the results if it actually carries answers.
     // An empty one is just the address bar keeping itself in step, and landing
@@ -92,8 +101,6 @@ export default function App() {
       // Private browsing and full quotas both land here. The session still
       // works in memory and through the share link, so this is not fatal.
     }
-    // Keep the address bar in step, so the link is always shareable as-is.
-    window.history.replaceState(null, '', `#${encodeState(session)}`);
   }, [session]);
 
   useEffect(() => {
