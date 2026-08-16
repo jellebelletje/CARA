@@ -2,6 +2,8 @@
 
 **Run the assessment: [jellebelletje.github.io/CARA](https://jellebelletje.github.io/CARA/)**
 
+[![The CARA results screen: a verdict, a readiness score, six scored dimensions and the launch conditions they generate](docs/results.png)](https://jellebelletje.github.io/CARA/)
+
 A scored readiness assessment for the question organisations actually ask before starting a
 Microsoft 365 Copilot pilot: **what has to be in place before we can start?**
 
@@ -9,6 +11,10 @@ CARA is worked through as a conversation between an adoption coach and the organ
 scores six dimensions, produces a go / no-go verdict, and turns every gap into a concrete
 **launch condition**: what to do about it, which side owns it, and whether it has to be closed
 before the pilot starts, alongside it, or before broad rollout.
+
+### The assessment itself
+
+![The CARA intro screen, showing the six dimensions and the four readiness levels](docs/intro.png)
 
 ## Where CARA sits
 

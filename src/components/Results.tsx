@@ -97,7 +97,7 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
       )}
       {unknownCritical.length > 0 && (
         <p className="mt-2 text-sm" style={{ color: 'var(--ink-muted)' }}>
-          {t('unknownCriticalWarning', locale)} {unknownCritical.join(', ')}
+          {t('unknownCriticalWarning', locale)} {unknownCritical.map(questionRef).join(', ')}
         </p>
       )}
 
