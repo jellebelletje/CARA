@@ -84,16 +84,8 @@ const en = {
     'Pilot-critical questions answered "don\'t know yet". An unknown here is a finding in its own right.',
 
   downloadPdf: 'Download PDF',
-  emailToMe: 'Email this to me',
-  copyLink: 'Copy share link',
-  linkCopied: 'Link copied',
   emailSubject: 'Copilot Adoption Readiness Assessment results',
-  emailHint:
-    'Pick whichever you actually use. The first two open a compose window in the browser and need nothing installed. The last one needs a mail app set up on this machine.',
-  emailGmail: 'Gmail',
-  emailOutlook: 'Outlook on the web',
-  emailApp: 'My mail app',
-  emailCopy: 'Copy the text',
+  emailCopy: 'Copy the report',
   emailCopied: 'Copied',
 
   runAlongside: 'Run these alongside CARA',
@@ -188,16 +180,8 @@ const nl: Partial<Record<StringKey, string>> = {
     'Vragen die kritiek zijn voor de pilot en beantwoord zijn met "weet ik nog niet". Zo\'n onbekende is op zichzelf al een bevinding.',
 
   downloadPdf: 'Download pdf',
-  emailToMe: 'Mail dit naar mezelf',
-  copyLink: 'Kopieer deellink',
-  linkCopied: 'Link gekopieerd',
   emailSubject: 'Resultaat gereedheidsscan Copilot-adoptie',
-  emailHint:
-    'Kies wat je zelf gebruikt. De eerste twee openen een venster in je browser en hebben niets nodig. De laatste werkt alleen als er een mailprogramma op deze computer is ingesteld.',
-  emailGmail: 'Gmail',
-  emailOutlook: 'Outlook op het web',
-  emailApp: 'Mijn mailprogramma',
-  emailCopy: 'Kopieer de tekst',
+  emailCopy: 'Kopieer het rapport',
   emailCopied: 'Gekopieerd',
 
   runAlongside: 'Draai deze naast CARA',

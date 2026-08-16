@@ -7,7 +7,7 @@ import ReadinessChart from './ReadinessChart';
 import type { Locale } from '../i18n/strings';
 import { ownerName, t, timingName, verdictBlurb, verdictName } from '../i18n/strings';
 import { conditionAction, questionRef } from '../i18n/questionText';
-import EmailActions from './EmailActions';
+import { buildReportText } from '../i18n/emailReport';
 
 interface Props {
   result: AssessmentResult;
@@ -52,6 +52,16 @@ function ConditionItem({ condition, locale }: { condition: ResolvedCondition; lo
 
 export default function Results({ result, shareLink, onEdit, onStartOver, locale }: Props) {
   const [grouping, setGrouping] = useState<'timing' | 'owner'>('timing');
+  const [copied, setCopied] = useState(false);
+
+  // Copying, rather than a mailto link. A mail hand-off depends on the browser
+  // agreeing to pass the protocol along, and browsers deny that silently, so
+  // the button looks broken with nothing to debug. Pasting always works.
+  const copyReport = async () => {
+    await navigator.clipboard.writeText(buildReportText(result, shareLink, locale));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   const verdictLevel = VERDICT_LEVEL[result.verdict];
   const unanswered = result.dimensions.reduce((n, d) => n + d.unansweredIds.length, 0);
@@ -178,6 +188,14 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
         </button>
         <button
           type="button"
+          onClick={copyReport}
+          className="rounded-lg border px-4 py-2 text-sm font-medium"
+          style={{ borderColor: 'var(--border)', color: 'var(--ink)' }}
+        >
+          {copied ? t('emailCopied', locale) : t('emailCopy', locale)}
+        </button>
+        <button
+          type="button"
           onClick={onEdit}
           className="rounded-lg border px-4 py-2 text-sm font-medium"
           style={{ borderColor: 'var(--border)', color: 'var(--ink-secondary)' }}
@@ -194,9 +212,7 @@ export default function Results({ result, shareLink, onEdit, onStartOver, locale
         </button>
       </div>
 
-      <div className="no-print mt-3">
-        <EmailActions result={result} shareLink={shareLink} locale={locale} />
-      </div>
+
     </div>
   );
 }
