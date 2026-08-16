@@ -15,6 +15,7 @@ import './styles/index.css';
 const beaconToken = import.meta.env.VITE_CF_BEACON_TOKEN;
 if (beaconToken) {
   const beacon = document.createElement('script');
+  beacon.type = 'module';
   beacon.defer = true;
   beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
   beacon.setAttribute('data-cf-beacon', JSON.stringify({ token: beaconToken }));
